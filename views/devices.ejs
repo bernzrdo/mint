@@ -1,0 +1,41 @@
+<%- include('layout/dashboard-header', { title: 'Dispositivos', css: ['devices'] }) %>
+
+<div class="title-bar">
+    <div class="title">
+        <%- icon('devices') %>
+        Dispositivos
+    </div>
+    <div class="actions">
+        <button class="btn add-btn">
+            <%- icon('plus') %>
+            Adicionar dispositivo
+        </button>
+    </div>
+</div>
+
+<p>Gere os dispositivos que tenham acesso a este painel de controlo.</p>
+
+<div class="cards">
+    <% for(let { name, deviceId, added, lastAccess } of sessions){ %>
+        <div class="card" data-id="<%- deviceId %>">
+            <div class="title"><%= name %></div>
+            <div class="subtitle"><%= deviceId %></div>
+            <div class="info"><%- icon('devices-plus') %> Adicionado <%= added %></div>
+            <div class="info"><%- icon('login-2') %> <% if(lastAccess){ %> Último acesso <%= lastAccess %> <% }else{ %> Nunca acedeu <% } %></div>
+            <div class="actions">
+                <button class="btn edit-btn">
+                    <%- icon('pencil') %>
+                    Editar nome
+                </button>
+                <% if(sessions.length > 1){ %>
+                    <button class="btn danger revoke-btn">
+                        <%- icon('ban') %>
+                        Revogar acesso
+                    </button>
+                <% } %>
+            </div>
+        </div>
+    <% } %>
+</div>
+
+<%- include('layout/dashboard-footer', { js: ['devices'] }) %>

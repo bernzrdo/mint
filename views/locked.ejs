@@ -1,0 +1,10 @@
+<%- include('layout/header', { title: 'Sem acesso', css: ['locked'] }) %>
+
+<div class="container">
+    <%- icon('lock') %>
+    <div class="title">Sem acesso</div>
+    <div class="message">Este dispositivo ainda não tem acesso ao painel de controlo. Através de um dispositivo que já tenha acesso, acede à página "Dispositivos" e adiciona um novo com o seguinte código.</div>
+    <div class="device-id"><%- deviceId %></div>
+</div>
+
+<%- include('layout/footer') %>

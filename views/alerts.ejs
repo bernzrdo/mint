@@ -1,0 +1,23 @@
+<%- include('layout/dashboard-header', { title: 'Alertas', css: ['infinite', 'alerts'] }) %>
+
+<div class="title">
+    <%- icon('bell') %>
+    Alertas
+</div>
+
+<div class="content">
+    <div class="loading"><%- icon('loader-quarter') %></div>
+    <div class="error" style="display: none;">
+        <%- icon('mood-look-down') %>
+        Ocorreu um erro ao obter os alertas. Tenta outra vez.
+    </div>
+</div>
+
+<div class="icons" style="display: none;">
+    <%- icon('info-circle') %>
+    <%- icon('bell') %>
+    <%- icon('clock') %>
+    <%- icon('alert-triangle') %>
+</div>
+
+<%- include('layout/dashboard-footer', { js: ['alerts'] }) %>

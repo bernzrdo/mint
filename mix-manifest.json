@@ -1,0 +1,16 @@
+{
+    "/public/js/alerts.js": "/public/js/alerts.js",
+    "/public/js/dashboard.js": "/public/js/dashboard.js",
+    "/public/js/devices.js": "/public/js/devices.js",
+    "/public/js/logs.js": "/public/js/logs.js",
+    "/public/js/searches.js": "/public/js/searches.js",
+    "/public/css/error.css": "/public/css/error.css",
+    "/public/css/devices.css": "/public/css/devices.css",
+    "/public/css/dashboard.css": "/public/css/dashboard.css",
+    "/public/css/alerts.css": "/public/css/alerts.css",
+    "/public/css/style.css": "/public/css/style.css",
+    "/public/css/searches.css": "/public/css/searches.css",
+    "/public/css/logs.css": "/public/css/logs.css",
+    "/public/css/locked.css": "/public/css/locked.css",
+    "/public/css/infinite.css": "/public/css/infinite.css"
+}

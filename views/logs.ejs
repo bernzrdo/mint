@@ -1,0 +1,22 @@
+<%- include('layout/dashboard-header', { title: 'Monitor', css: ['infinite', 'logs'] }) %>
+
+<div class="title">
+    <%- icon('terminal-2') %>
+    Monitor
+</div>
+
+<div class="content">
+    <div class="loading"><%- icon('loader-quarter') %></div>
+    <div class="error" style="display: none;">
+        <%- icon('mood-look-down') %>
+        Ocorreu um erro ao obter o monitor. Tenta outra vez.
+    </div>
+</div>
+
+<div class="icons" style="display: none;">
+    <%- icon('info-circle', true) %>
+    <%- icon('alert-triangle', true) %>
+    <%- icon('alert-hexagon', true) %>
+</div>
+
+<%- include('layout/dashboard-footer', { js: ['logs'] }) %>

@@ -1,0 +1,35 @@
+<%- include('header', { css: [ 'dashboard', ...(locals.css ?? []) ] }) %>
+<header>
+    <a href="/" class="logo">
+        <div class="icon"></div>
+        <div class="name">mint</div>
+    </a>
+    <button class="btn dnd-btn">
+        <%- icon('moon') %>
+        Silenciar notificações
+    </button>
+</header>
+<div class="container">
+    <nav>
+        <a href="/" <%- path == '/' ? 'class="active"' : '' %> >
+            <%- icon('home') %>
+            Início
+        </a>
+        <a href="/alerts" <%- path == '/alerts' ? 'class="active"' : '' %> >
+            <%- icon('bell') %>
+            Alertas
+        </a>
+        <a href="/searches" <%- path == '/searches' ? 'class="active"' : '' %> >
+            <%- icon('search') %>
+            Pesquisas
+        </a>
+        <a href="/devices" <%- path == '/devices' ? 'class="active"' : '' %> >
+            <%- icon('devices') %>
+            Dispositivos
+        </a>
+        <a href="/logs" <%- path == '/logs' ? 'class="active"' : '' %> >
+            <%- icon('terminal-2') %>
+            Monitor
+        </a>
+    </nav>
+    <main>

@@ -1,0 +1,46 @@
+<%- include('layout/dashboard-header', { title: 'Pesquisas', css: ['searches'] }) %>
+
+<div class="title-bar">
+    <div class="title">
+        <%- icon('search') %>
+        Pesquisas
+    </div>
+    <div class="actions">
+        <button class="btn add-btn">
+            <%- icon('plus') %>
+            Adicionar pesquisa
+        </button>
+    </div>
+</div>
+
+<p>Gere as pesquisam que enviam alertas.</p>
+
+<% if(searches.length == 0){ %>
+    <div class="no-cards">Sem pesquisas.</div>
+<% }else{ %>
+    <div class="cards">
+        <% for(let { id, query, interval, token, sound, interruptionLevel } of searches){ %>
+            <div class="card" data-id="<%= id %>">
+                <div class="title">“<%= query %>”</div>
+                <div class="info"><%- icon('stopwatch') %> Pesquisa <%= interval %></div>
+                <div class="info"><%- icon('volume') %> <%= sound %></div>
+                <div class="info"><%- icon('bell') %> <%= interruptionLevel %></div>
+                <div class="actions">
+                    <button class="btn edit-btn">
+                        <%- icon('pencil') %>
+                        Editar
+                    </button>
+                    <button class="btn danger delete-btn">
+                        <%- icon('trash') %>
+                        Apagar
+                    </button>
+                </div>
+            </div>
+        <% } %>
+    </div>
+<% } %>
+
+
+<script>const LAST_CHANIFY_TOKEN = '<%- lastChanifyToken %>';</script>
+
+<%- include('layout/dashboard-footer', { js: ['searches'] }) %>

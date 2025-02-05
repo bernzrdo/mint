@@ -1,0 +1,160 @@
+
+html, body { height: 100% }
+
+:root {
+    color-scheme: dark;
+    --color-0: #000;
+    --color-1: #111;
+    --color-2: #222;
+    --color-3: #333;
+    --color-4: #444;
+    --color-5: #555;
+    --color-6: #666;
+    --color-7: #777;
+    --color-8: #888;
+    --color-9: #999;
+    --color-a: #aaa;
+    --color-b: #bbb;
+    --color-c: #ccc;
+    --color-d: #ddd;
+    --color-e: #eee;
+    --color-f: #fff;
+}
+
+@media (prefers-color-scheme: light) {
+
+    :root {
+        --color-0: #fff;
+        --color-1: #eee;
+        --color-2: #ddd;
+        --color-3: #ccc;
+        --color-4: #bbb;
+        --color-5: #aaa;
+        --color-6: #999;
+        --color-7: #888;
+        --color-8: #777;
+        --color-9: #666;
+        --color-a: #555;
+        --color-b: #444;
+        --color-c: #333;
+        --color-d: #222;
+        --color-e: #111;
+        --color-f: #000;
+    }
+
+}
+
+* { transition: all .3s }
+
+body {
+    margin: 0;
+    font-family: 'Space Grotesk', sans-serif;
+    background-color: var(--color-0);
+    color: var(--color-f);
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+input, button, select {
+    font-family: inherit;
+    font-size: inherit;
+    color: inherit;
+    background-color: transparent;
+    border: none;
+    padding: 0;
+}
+
+button, select { cursor: pointer }
+
+p {
+    margin: 0;
+    color: var(--color-a);
+    text-align: justify;
+}
+
+.monospace { font-family: 'Space Mono', monospace }
+
+.btn {
+
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    padding: 5px 15px;
+
+    background-color: var(--bg);
+    border: 1px solid var(--color-2);
+    border-radius: 10px;
+    
+    &:hover { background-color: var(--color-1) }
+
+    &.secondary {
+        border-color: transparent;
+        &:hover { background-color: var(--color-0) }
+    }
+
+    &.danger {
+        color: #f00;
+        border-color: #f002;
+        &:hover { background-color: #f001 }
+    }
+
+    &:disabled {
+        opacity: .5;
+        pointer-events: none;
+    }
+
+}
+
+label {
+    color: var(--color-a);
+    font-size: .8em;
+    font-weight: bold;
+}
+
+.input-group {
+
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+
+    input, select {
+
+        padding: 10px;
+        border: 1px solid var(--color-2);
+        border-radius: 10px;
+        
+        &:focus {
+            outline: none;
+            border-color: var(--color-5);
+        }
+    
+    }
+
+    select option {
+        background-color: var(--color-0);
+    }
+
+    &:not(.has-error) .error { display: none }
+
+    &.has-error {
+
+        label { color: #f00a }
+
+        input {
+            border-width: 2px;
+            border-color: #f002;
+            color: #f00;
+            &::placeholder { color: #f008 }
+        }
+
+        .error {
+            font-size: .8em;
+            color: #f00;
+        }
+
+    }
+
+}

@@ -1,0 +1,325 @@
+
+body {
+
+    display: flex;
+    flex-direction: column;
+
+    header {
+        
+        display: flex;
+        align-items: center;
+        justify-content: space-between  ;
+        gap: 15px;
+        padding: 15px 25px;
+        border-bottom: 1px solid var(--color-2);
+    
+        .logo {
+            
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 1.5em;
+    
+            .icon {
+                width: 1.5em;
+                height: 1.5em;
+                background-image: url('/img/icon.png');
+                background-size: cover;
+                background-position: center;
+                border-radius: 5000px;
+            }
+    
+    
+        }
+    
+    }
+
+    .no-cards {
+    
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-grow: 1;
+    
+        text-align: center;
+        font-size: 1.5em;
+        color: var(--color-5);
+    
+    }
+
+    .cards {
+        display: flex;
+        flex-wrap: wrap;
+        margin-top: 15px;
+        gap: 15px;
+    }
+    
+    .card {
+
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+
+        padding: 15px;
+        border: 1px solid var(--color-2);
+        border-radius: 10px;
+
+        .title {
+            font-size: 1.5em;
+            font-weight: bold;
+        }
+
+        .subtitle {
+            font-size: .7em;
+            color: var(--color-5);
+            font-family: 'Space Mono', monospace;
+        }
+
+        .text { margin-bottom: 5px }
+
+        .info {
+
+            display: flex;
+            align-items: center;
+            gap: 5px;
+
+            svg {
+                width: 1.2em;
+                height: 1.2em;
+                flex-shrink: 0;
+            }
+
+        }
+
+        .actions {
+
+            display: flex;
+            flex-wrap: wrap;
+            gap: 5px;
+            margin-top: 5px;
+
+        }
+
+    }
+    
+    .container {
+    
+        display: flex;
+        flex-grow: 1;
+        min-height: 0;
+    
+        nav {
+    
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+    
+            border-right: 1px solid var(--color-2);
+            padding: 10px;
+    
+            width: 200px;
+            flex-shrink: 0;
+        
+            a {
+    
+                display: flex;
+                align-items: center;
+                gap: 10px;
+                
+                padding: 10px 15px;
+                border-radius: 10px;
+        
+                border: 1px solid var(--color-0);
+                &.active { border-color: var(--color-2) }
+    
+                &:hover { background-color: var(--color-1) }
+    
+            }
+    
+            .space { flex-grow: 1 }
+        
+        }
+    
+        main {
+
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+            flex-grow: 1;
+            padding: 15px;
+            overflow: auto;
+        
+            & > .title, & .title-bar > .title {
+        
+                display: flex;
+                align-items: center;
+                gap: 15px;
+                font-weight: bold;
+                font-size: 2em;
+        
+                svg {
+                    width: 1em;
+                    height: 1em;
+                }
+        
+            }
+    
+            .title-bar {
+                
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: space-between;
+                align-items: center;
+                gap: 15px;
+
+                .actions {
+                    display: flex;
+                    gap: 5px;
+                }
+
+            }
+
+            .content {
+
+                display: flex;
+                flex-direction: column;
+                gap: 15px;
+                margin: 15px 0;
+
+                max-width: 600px;
+                width: 100%;
+                align-self: center;
+
+            }
+        
+        }
+    
+    }
+
+    .modal-container {
+
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        background-color: #0008;
+        backdrop-filter: blur(5px);
+
+        &.off {
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        .modal {
+
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            padding: 25px;
+            max-width: calc(100% - 100px);
+
+            background-color: var(--color-0);
+            border: 1px solid var(--color-2);
+            border-radius: 10px;
+
+            .header {
+
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                gap: 5px;
+
+                .title {
+                    font-weight: bold;
+                    font-size: 1.5em;
+                }
+
+                .close-btn svg {
+                    color: var(--color-8);
+                    width: 1em;
+                    height: 1em;
+                }
+                
+            }
+
+            .body {
+                
+                display: flex;
+                flex-direction: column;
+                gap: 10px;
+
+                .input-group input { margin: 0 -5px }
+
+            }
+
+            .footer {
+                display: flex;
+                justify-content: flex-end;
+                flex-wrap: wrap;
+                gap: 5px;
+            }
+
+        }
+        &.off .modal { transform: scale(.8) }
+
+
+    }
+
+}
+
+@media (max-width: 700px) {
+    
+    body {
+
+        header {
+
+            padding: 10px 15px;
+            
+            .logo .icon {
+                width: 1.2em;
+                height: 1.2em;
+            }
+
+        }
+
+        .container {
+
+            flex-direction: column-reverse;
+    
+            nav {
+                
+                width: unset;
+                flex-direction: row;
+                overflow: auto;
+    
+                border-top: 1px solid var(--color-2);
+                border-right: none;
+    
+                justify-content: space-around;
+    
+                a {
+    
+                    gap: 5px;
+                    flex-direction: column;
+                    flex: 1 1 0;
+                    font-size: .8em;
+                    color: var(--color-a);
+    
+                    svg {
+                        width: 2.2em;
+                        height: 2.2em;
+                        color: var(--color-f);
+                    }
+                }
+    
+            }
+    
+        }
+
+    }
+    
+}

@@ -1,0 +1,13 @@
+    </main>
+</div>
+<div class="modal-container off">
+    <div class="modal">
+        <div class="header">
+            <div class="title"></div>
+            <button class="close-btn"><%- icon('x') %></button>
+        </div>
+        <div class="body"></div>
+        <div class="footer"></div>
+    </div>
+</div>
+<%- include('footer', { js: [ 'dashboard', ...(locals.js ?? []) ] }) %>

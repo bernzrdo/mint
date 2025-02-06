@@ -1,6 +1,7 @@
 {
     "scripts": {
         "start": "bun index.ts",
+        "allow": "bun authorize.ts",
         "dev": "conc \"bun start\" \"mix watch\""
     },
     "dependencies": {

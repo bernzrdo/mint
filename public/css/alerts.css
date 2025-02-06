@@ -1,11 +1,1 @@
-.card .warn {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  padding: 10px 15px;
-  margin-top: 5px;
-  border: 2px solid #fa0;
-  border-radius: 10px;
-  background-color: rgba(255, 170, 0, 0.1333333333);
-  color: #fa0;
-}
+.card .warn{align-items:center;background-color:rgba(255,170,0,.133);border:2px solid #fa0;border-radius:10px;color:#fa0;display:flex;gap:10px;margin-top:5px;padding:10px 15px}

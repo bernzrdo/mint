@@ -23,7 +23,12 @@ export const sessions = {
         if(!deviceId){
     
             deviceId = crypto.randomUUID();
-            res.cookie('id', deviceId);
+            res.cookie('id', deviceId, {
+                maxAge: 10 * 365 * 24 * 60 * 60 * 1000,
+                httpOnly: true,
+                secure: true,
+                sameSite: 'strict'
+            });
             
             res.status(403);
             res.render('locked', { deviceId });

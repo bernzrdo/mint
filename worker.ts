@@ -30,8 +30,12 @@ type Response = {
     }
 } | {
     code: 100,
-    message: string,
     message_code: 'invalid_authentication_token',
+    message: string,
+} | {
+    code: 105,
+    message_code: 'server_code',
+    message: string
 }
 
 interface Item {
@@ -365,12 +369,13 @@ class Worker {
                 return;
             }
 
-            console.log(res);
-            throw new Error(`Code: 100. Expected message: "invalid_authentication_token". Message: "${res.message_code}"\n\nURL: ${url}\nToken: ${token}\nResponse: ${res}`);
+            throw new Error(`Code: 100. Expected message: "invalid_authentication_token". Message: "${(res as any).message_code}"\n\nURL: ${url}\nToken: ${token}\nResponse: ${res}`);
             
         }
 
-        console.log(res);
+        if(res.code == 105) // server error
+            return;
+
         throw new Error(`Unexpected code ${(res as any).code}!\n\nURL: ${url}\nToken: ${token}\nResponse: ${JSON.stringify(res, null, 2)}`);
 
     }

@@ -292,17 +292,14 @@ class Worker {
         }
 
         this.#log('Fetching new items...');
-        const req = await fetch(
-
-            'https://www.vinted.pt/api/v2/catalog/items?' + new URLSearchParams({
-                per_page: '20',
-                search_text: this.search.query.toLowerCase(),
-                order: 'newest_first'
-            }).toString(),
-
-            { headers: { Cookie: 'access_token_web=' + token }}
-            
-        );
+        const url = 'https://www.vinted.pt/api/v2/catalog/items?' + new URLSearchParams({
+            per_page: '20',
+            search_text: this.search.query.toLowerCase(),
+            order: 'newest_first'
+        }).toString();
+        const req = await fetch(url, { headers: {
+            Cookie: 'access_token_web=' + token
+        }});
         const res: Response = await req.json();
 
         if(res.code == 0){
@@ -369,12 +366,12 @@ class Worker {
             }
 
             console.log(res);
-            throw new Error(`Code: 100. Expected message: "invalid_authentication_token". Message: "${res.message_code}"`);
+            throw new Error(`Code: 100. Expected message: "invalid_authentication_token". Message: "${res.message_code}"\n\nURL: ${url}\nToken: ${token}\nResponse: ${res}`);
             
         }
 
         console.log(res);
-        throw new Error(`Unexpected code ${(res as any).code}!`);
+        throw new Error(`Unexpected code ${(res as any).code}!\n\nURL: ${url}\nToken: ${token}\nResponse: ${res}`);
 
     }
 

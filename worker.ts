@@ -373,8 +373,10 @@ class Worker {
             
         }
 
-        if(res.code == 105) // server error
+        if(res.code == 105){ // server error
+            this.#log('Server error', LogType.error);
             return;
+        }
 
         throw new Error(`Unexpected code ${(res as any).code}!\n\nURL: ${url}\nToken: ${token}\nResponse: ${JSON.stringify(res, null, 2)}`);
 

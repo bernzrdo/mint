@@ -371,7 +371,7 @@ class Worker {
         }
 
         console.log(res);
-        throw new Error(`Unexpected code ${(res as any).code}!\n\nURL: ${url}\nToken: ${token}\nResponse: ${res}`);
+        throw new Error(`Unexpected code ${(res as any).code}!\n\nURL: ${url}\nToken: ${token}\nResponse: ${JSON.stringify(res, null, 2)}`);
 
     }
 
